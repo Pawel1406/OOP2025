@@ -20,12 +20,13 @@ public class Main {
         for(int i=0;i<arr.length;i++)
         {
             arr[i]=new Segment();
-           arr[i].p1.x=licznik;
-           arr[i].p1.y=licznik+1.0;
+           arr[i].p1.x=1.0;
+           arr[i].p1.y=2.0;
            arr[i].p2.x=licznik+2.0;
            arr[i].p2.y=licznik+3.0;
            licznik+=4.0;
         }
         Segment maxi=arr[0].maximal(arr);
+        System.out.println(maxi.length_o());
     }
 }
