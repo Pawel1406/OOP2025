@@ -30,5 +30,6 @@ public class Main {
         System.out.println(maxi.length_o());
         Point[] arr_p=new Point [3];
         Polygon poli=new Polygon(arr_p);
+        poli.toString();
     }
 }
