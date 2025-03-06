@@ -3,7 +3,7 @@ public class Main {
         Point p = new Point();
         p.x = 10;
         p.y = 20;
-        // System.out.println(p1.toSvg());// p1.toString()
+
         p.translate(400,500);
         System.out.println(p);
         Point p2=p.translated(237,0);
@@ -28,5 +28,7 @@ public class Main {
         }
         Segment maxi=arr[0].maximal(arr);
         System.out.println(maxi.length_o());
+        Point[] arr_p=new Point [3];
+        Polygon poli=new Polygon(arr_p);
     }
 }
