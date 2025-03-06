@@ -5,10 +5,7 @@ public class Polygon {
 
     public Polygon(Point[] arr) {
         this.arr = new Point[arr.length];
-        for(int i=0;i<arr.length;i++)
-        {
-            this.arr[i]=arr[i];
-        }
+        System.arraycopy(arr, 0, this.arr, 0, arr.length);
     }
 
     @Override
@@ -18,9 +15,9 @@ public class Polygon {
                 '}';
     }
     public String SVG() {
-        return "<Polygon>{" +
-                "arr=" + Arrays.toString(arr) +
-                "} </polygon>";
+        return "<svg height=\"220\" width=\"500\" xmlns=\"http://www.w3.org/2000/svg\">"
+                +"<polygon points="+Arrays.toString(arr)+"style=\"fill:lime;stroke:purple;stroke-width:3\" />"+
+                "</svg>";
     }
 
 
