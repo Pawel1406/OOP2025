@@ -1,28 +1,65 @@
+import static java.lang.Math.pow;
+
 public class Segment {
-    Point p1=new Point();
-    Point p2=new Point();
-    public double length_o()
-    {
-        return Math.sqrt(Math.pow(p2.x-p1.x,2)+Math.pow(p2.y-p1.y,2));
+    private final Point a, b;
+
+    public Segment(Point a, Point b) {
+        this.a = new Point(a);      // dokonujemy kopiowania konstruktorem kopiującym
+        this.b = new Point(b);
     }
-    public Segment maximal(Segment []arr)
-    {
-        Segment maxi=new Segment();
-        maxi.p1.x=p1.x;
-        maxi.p1.y=p1.y;
-        maxi.p2.x=p1.x;
-        maxi.p2.y=p1.y;
-        for(int i=0;i<arr.length;i++)
-        {
-            if(maxi.length_o()<arr[i].length_o())
-            {
-                maxi.p1.x=arr[i].p1.x;
-                maxi.p1.y=arr[i].p1.y;
-                maxi.p2.x=arr[i].p2.x;
-                maxi.p2.y=arr[i].p2.y;
-            }
+
+    // zwraca dwa możliwe odcinki prostopadłe zaczynające się w punkcie origin
+    public Segment[] perpendicularSegments(Point origin){
+        return perpendicularSegments(origin, length());
+    }
+
+    public Segment[] perpendicularSegments(Point origin, double length){
+        double dx = b.getX() - a.getX();
+        double dy = b.getY() - a.getY();
+        dx = dx/length() * length;
+        dy = dy/length() * length;
+
+        return new Segment[]{
+                new Segment(origin, new Point(origin.getX()+dy, origin.getY()-dx)),
+                new Segment(origin, new Point(origin.getX()-dy, origin.getY()+dx))
+        };
+    }
+
+    public Point getA() {
+        return a;
+    }
+
+    public Point getB() {
+        return b;
+    }
+
+    public Point getCenter() {
+        return new Point((a.getX()+b.getX())/2, (a.getY()+b.getY())/2);
+    }
+
+    public double length(){
+        return Math.sqrt(pow(a.getX()-b.getX(), 2) + pow(a.getY()-b.getY(), 2));
+    }
+
+    public static Segment maxSegment(Segment[] arr){
+        if(arr.length == 0)
+            return null;
+
+        Segment max = arr[0];
+        for(int i=1; i<arr.length; i++){
+            if(arr[i].length() > max.length())
+                max = arr[i];
         }
-        return maxi;
+        return max;
     }
+
+    @Override
+    public String toString() {
+        return "Segment{" +
+                "a=" + a +
+                ", b=" + b +
+                '}';
+    }
+
 
 }
