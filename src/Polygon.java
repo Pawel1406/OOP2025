@@ -7,6 +7,7 @@ public class Polygon {
         this.arr = new Point[arr.length];
         System.arraycopy(arr, 0, this.arr, 0, arr.length);
     }
+    //ahahahhaha
 
     @Override
     public String toString() {
