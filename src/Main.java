@@ -14,7 +14,7 @@ public class Main {
             //czas.setCity(mapa.get("Kijów"));
 
             //System.out.println((DigitalClock) czas.localmeantime(10,0,0));
-           /* AnalogClock czasy=new AnalogClock();
+            AnalogClock czasy=new AnalogClock();
             czasy.toSvg("src/zegar1.svg");
             List<City> lista_n=new ArrayList<>();
             mapa.forEach((k,v)->lista_n.add(v));
@@ -23,7 +23,7 @@ public class Main {
             zegarek.setTime(10,10,10,lista_n.get(2));
             City.generateAnalogClockSvg(lista_n,zegarek);
 
-            */
+            
 
 
         }
