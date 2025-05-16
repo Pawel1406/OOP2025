@@ -9,21 +9,21 @@ public class Main {
             //System.out.println(czas.toString());
             Map<String,City> mapa= City.parseFile("src/strefy.csv");
             DigitalClock czas = new DigitalClock(DigitalClock.Clocktype.H24, 13, 20, 20, mapa.get("Warszawa"));
-            //System.out.println(mapa);
-           System.out.println(czas.toString());
+            System.out.println(mapa);
+           //System.out.println(czas.toString());
             //czas.setCity(mapa.get("Kijów"));
-           // System.out.println(czas.toString());
+
             //System.out.println((DigitalClock) czas.localmeantime(10,0,0));
-            //Collections.sort(mapa,City.worstTimezoneFit());
-            AnalogClock czasy=new AnalogClock();
+           /* AnalogClock czasy=new AnalogClock();
             czasy.toSvg("src/zegar1.svg");
-            List<Map.Entry<String, City>> lista_n=new ArrayList<>();
-            lista_n=mapa.entrySet()
-                    .stream().toList();
+            List<City> lista_n=new ArrayList<>();
+            mapa.forEach((k,v)->lista_n.add(v));
             System.out.println(lista_n);
             AnalogClock zegarek=new AnalogClock();
-            zegarek.setTime(10,10,10,lista_n.get(2).getValue());
+            zegarek.setTime(10,10,10,lista_n.get(2));
             City.generateAnalogClockSvg(lista_n,zegarek);
+
+            */
 
 
         }

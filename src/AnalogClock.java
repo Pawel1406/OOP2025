@@ -19,7 +19,7 @@ public class AnalogClock extends Clock {
     }
     String a="Alalallala";
 
-    public AnalogClock(Object clock10) throws FileNotFoundException {
+    public AnalogClock(Object clock10)  {
         if(clock10 instanceof AnalogClock){
             AnalogClock clock=(AnalogClock)clock10;
             setTime(clock.getHh(), clock.getMm(), clock.getSs(), null);
@@ -54,5 +54,6 @@ public class AnalogClock extends Clock {
         zapis.close();
 
     }
+
 }
 
